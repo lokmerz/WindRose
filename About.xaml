@@ -1,0 +1,28 @@
+﻿<Window x:Class="WindRose.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WindRose"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBackgroundBrush}"
+        Foreground="{DynamicResource ForegroundBrush}"
+        Title="About" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            
+            <Button x:Name="btnClose"
+            Width="80" Height="35"           
+            HorizontalAlignment="Center"
+            Margin="0,10,0,0"
+            FontWeight="Bold"
+            BorderThickness="1"
+            Cursor="Hand"
+            IsDefault="True"/>
+
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>
