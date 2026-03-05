@@ -52,11 +52,13 @@ public partial class mainWindow : Window
         }
 
         _currentLanguage = _settings.DefaultLanguage;
+        _currentTheme = _settings.Theme;
     }
 
     private void SaveSettings()
     {
         _settings.DefaultLanguage = _currentLanguage;
+        _settings.Theme = _currentTheme;
 
         var options = new JsonSerializerOptions { WriteIndented = true };
         var path = System.IO.Path.Combine(AppContext.BaseDirectory, "settings.json");
@@ -618,6 +620,9 @@ public partial class mainWindow : Window
     private void LightThemeMenuItem_Click(object sender, RoutedEventArgs e)
     {
         _currentTheme = "light";
+
+        SaveSettings();
+        
         ConfigureThemeMenuChecks();
         ApplyTheme();
         DrawRose(_displayAngle ?? ParseAngleOrNull());
@@ -626,6 +631,9 @@ public partial class mainWindow : Window
     private void DarkThemeMenuItem_Click(object sender, RoutedEventArgs e)
     {
         _currentTheme = "dark";
+
+        SaveSettings();
+
         ConfigureThemeMenuChecks();
         ApplyTheme();
         DrawRose(_displayAngle ?? ParseAngleOrNull());
@@ -672,4 +680,5 @@ public sealed class LanguagePack
 public sealed class AppSettings
 {
     public string DefaultLanguage { get; set; } = "hr";
+    public string Theme { get; set; } = "light";
 }
